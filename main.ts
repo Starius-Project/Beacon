@@ -1,14 +1,20 @@
 input.onButtonPressed(Button.A, function () {
-    servos.P0.setAngle(180)
-    control.waitMicros(2000)
+    servos.P0.setAngle(85)
+})
+radio.onReceivedString(function (receivedString) {
+    if (receivedString == "up") {
+        servos.P0.setAngle(85)
+        basic.showIcon(IconNames.Cow)
+    }
 })
 input.onButtonPressed(Button.B, function () {
-    servos.P0.setAngle(0)
-    control.waitMicros(2000)
+    servos.P0.setAngle(20)
 })
 radio.setGroup(1)
 radio.setTransmitPower(1)
-servos.P0.setRange(0, 90)
+basic.showString("FUEL BEACON")
+servos.P0.setAngle(20)
 basic.forever(function () {
-	
+    radio.sendString("2")
+    basic.pause(200)
 })
