@@ -13,7 +13,7 @@ input.onButtonPressed(Button.B, function () {
     basic.showString("C")
 })
 radio.setGroup(1)
-radio.setTransmitPower(1)
+radio.setTransmitPower(7)
 basic.showString("FUEL BEACON")
 servos.P0.setAngle(20)
 basic.forever(function () {
